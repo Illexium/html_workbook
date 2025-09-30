@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="./my_html_workbook.html" method="get">
+        <button type="submit">Go back</button>
+      </form>
+    <div id="demo"></div>
+    <button onclick="getLocation()">Get geolocation</button>
+    <script>
+        const x = document.getElementById("demo");
+        function getLocation() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(success, error);
+          } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+          }
+        }
+        
+        function success(position) {
+          x.innerHTML = "Latitude: " + position.coords.latitude +
+          "<br>Longitude: " + position.coords.longitude;
+        }
+        
+        function error() {
+          alert("Sorry, no position available.");
+        }
+
+        </script>
+    
+</body>
+</html>
